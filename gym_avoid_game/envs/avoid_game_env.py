@@ -3,6 +3,7 @@ from .resource.scene import Scene
 from .resource.task import task1
 from .resource import task_manager
 import gym
+import os
 import pygame
 
 # os.environ["SDL_VIDEODRIVER"] = "dummy"
@@ -32,7 +33,7 @@ class ShootingEnv(gym.Env):
         rgb_pixels = [[[(j >> 16) & 255, (j >> 8) & 255, j & 255] for j in i] for i in pixelarray]
         # time.sleep(1)
 
-        return np.asarray(rgb_pixels), reward, self.done, {}
+        return np.asarray(rgb_pixels, dtype=np.uint8), reward, self.done, {}
 
     def render(self, mode='human'):
         pygame.display.update()
@@ -41,7 +42,10 @@ class ShootingEnv(gym.Env):
         self.done = False
         pygame.init()
         self.task_manager = task_manager.TaskManager(task1.Task1)
-        self.screen = pygame.display.set_mode((60, 60))
+        try:
+            self.screen = pygame.display.set_mode((60, 60))
+        except:
+            os.environ["SDL_VIDEODRIVER"] = "dummy"
         pygame.display.set_caption("shooting_env")
 
         self.screen.fill((255, 255, 255))
@@ -49,7 +53,7 @@ class ShootingEnv(gym.Env):
         pixelarray = pygame.PixelArray(self.screen)
         rgb_pixels = [[[(j >> 16) & 255, (j >> 8) & 255, j & 255] for j in i] for i in pixelarray]
 
-        return np.asarray(rgb_pixels)
+        return np.asarray(rgb_pixels, dtype=np.uint8)
 
     def close(self):
         pygame.quit()
