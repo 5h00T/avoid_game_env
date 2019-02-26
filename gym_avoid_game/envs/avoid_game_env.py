@@ -3,6 +3,7 @@ from .resource.scene import Scene
 from .resource.task import task1
 from .resource import task_manager
 import gym
+import gym.spaces
 import os
 import pygame
 
