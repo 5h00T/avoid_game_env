@@ -47,7 +47,7 @@ class ShootingEnv(gym.Env):
             self.screen = pygame.display.set_mode((60, 60))
         except:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
-            self.screen = pygame.display.set_mode((60, 60))
+            self.screen = pygame.display.set_mode((60, 60), flags=0, depth=32)
         pygame.display.set_caption("shooting_env")
 
         self.screen.fill((255, 255, 255))

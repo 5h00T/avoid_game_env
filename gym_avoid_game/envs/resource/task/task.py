@@ -21,6 +21,8 @@ class Task():
             self.count += 1
             self.enemy.update()
             self.collision_detection()
+        else:
+            self.return_value["status"] = "exit"
 
     def draw(self, screen):
         if self.is_player_active:
