@@ -1,4 +1,5 @@
 from . import bullet_pool
+from .config import WINDOW_WIDTH, WINDOW_HEIGHT
 import math
 import pygame
 
@@ -7,6 +8,7 @@ class Player():
     y = -10
 
     def __init__(self, x, y, width, height, collision_radius, speed):
+        self.color = (249, 155, 69)
         Player.x = x
         Player.y = y
         self.width = width
@@ -35,7 +37,7 @@ class Player():
         self.move(a)
 
     def draw(self, screen):
-        pygame.draw.rect(screen, (249, 155, 69), pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
+        pygame.draw.rect(screen, self.color, pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
         # pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(self.x, self.y, 1, 1))
         for b in self.bullets:
             b.draw()
@@ -102,16 +104,15 @@ class Player():
         self.view_start_y = Player.y - self.height / 2
 
         # 画面外に行かないように移動制限
-        width = height = 60
         if self.view_start_x < 0:
             Player.x = self.width / 2
-        elif self.view_start_x + self.width >= width:
-            Player.x = width - self.width / 2
+        elif self.view_start_x + self.width >= WINDOW_WIDTH:
+            Player.x = WINDOW_WIDTH - self.width / 2
 
         if self.view_start_y < 0:
             Player.y = self.height / 2
-        elif self.view_start_y + self.height >= height:
-            Player.y = height - self.height / 2
+        elif self.view_start_y + self.height >= WINDOW_HEIGHT:
+            Player.y = WINDOW_HEIGHT - self.height / 2
 
         self.view_start_x = Player.x - self.width / 2
         self.view_start_y = Player.y - self.height / 2

@@ -1,6 +1,6 @@
 import math
 import pygame
-
+from .config import WINDOW_HEIGHT, WINDOW_WIDTH
 
 COLLISION_RADIUS_RATE = 0.3  # 見た目の当たり判定からどのぐらい
 
@@ -25,6 +25,7 @@ class Bullet():
             # 移動
             self.x += self.movement_x * self.speed
             self.y += self.movement_y * self.speed
+            # print(math.sqrt(self.movement_x**2 + self.movement_y**2))
 
             # 移動用の関数が設定されていた場合実行
             for move_function in self.move_functions:
@@ -35,8 +36,7 @@ class Bullet():
                         self.move_functions.remove(move_function)
 
         # 画面外に出たら非アクティブ化
-        width = height = 60
-        if self.x < 0 or self.x > width or self.y < 0 or self.y > height:
+        if self.x < 0 or self.x > WINDOW_WIDTH or self.y < 0 or self.y > WINDOW_HEIGHT:
             self.count = 0
             self.move_functions.clear()
             self.is_active = False

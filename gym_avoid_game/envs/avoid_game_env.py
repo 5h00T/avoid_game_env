@@ -2,13 +2,13 @@ import numpy as np
 from .resource.scene import Scene
 from .resource.task import task1
 from .resource import task_manager
+from .resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
 import gym
 import gym.spaces
 import os
 import pygame
 
 # os.environ["SDL_VIDEODRIVER"] = "dummy"
-
 
 class ShootingEnv(gym.Env):
     def __init__(self):
@@ -42,10 +42,10 @@ class ShootingEnv(gym.Env):
         pygame.init()
         self.task_manager = task_manager.TaskManager(task1.Task1)
         try:
-            self.screen = pygame.display.set_mode((60, 60))
+            self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         except:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
-            self.screen = pygame.display.set_mode((60, 60), 0, 32)
+            self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption("shooting_env")
 
         self.screen.fill((255, 255, 255))

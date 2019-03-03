@@ -6,12 +6,13 @@ from .. import bullet_pool
 class Task():
 
     def __init__(self):
-        self.player = player.Player(30, 50, 4, 4, 1, 2)
+        self.player = player.Player(100, 180, 15, 15, 3, 3)
         self.enemy_max_hp = self.enemy.hp
         self.return_value = {"status": Scene.NO_SCENE_CHANGE}
         self.is_clear = False
         self.count = 0
         self.bullet_pool = bullet_pool.EnemyBulletPool
+        self.bullet_pool.all_reset_bullet()
         self.is_player_active = True
 
     def update(self, a):

@@ -58,7 +58,7 @@ class Enemy():
                     self.bits.remove(bit)
 
     def draw(self, screen):
-        pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
+        pygame.draw.rect(screen, self.color, pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
 
         for bit in self.bits:
             bit.draw()
@@ -265,7 +265,7 @@ class ShotPosition():
                 if count % interval_count == 0:
                     _angle = random.uniform(0, 360)
                     for i in range(way):
-                        b = self.bullet_pool.get_bullet(2, self.x, self.y, math.cos(math.radians(_angle)),
+                        b = self.bullet_pool.get_bullet(8, self.x, self.y, math.cos(math.radians(_angle)),
                                                         math.sin(math.radians(_angle)), speed, 0)
                         if b:
                             self.bullets.append(b)
