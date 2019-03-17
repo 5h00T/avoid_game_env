@@ -1,4 +1,4 @@
-from . import enemy
+from gym_avoid_game.envs.resource.enemy import enemy
 
 
 class Enemy1(enemy.Enemy):

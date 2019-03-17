@@ -1,4 +1,4 @@
-from . import bullet
+from gym_avoid_game.envs.resource import bullet
 
 MAX_BULLET_NUM = 250
 

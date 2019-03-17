@@ -1,6 +1,6 @@
-from .. import player
-from ..scene import Scene
-from .. import bullet_pool
+from gym_avoid_game.envs.resource import player
+from gym_avoid_game.envs.resource.scene import Scene
+from gym_avoid_game.envs.resource import bullet_pool
 
 
 class Task():
@@ -15,9 +15,9 @@ class Task():
         self.bullet_pool.all_reset_bullet()
         self.is_player_active = True
 
-    def update(self, a):
+    def update(self, a, x_axis_only=False):
         if self.is_player_active:
-            self.player.update(a)
+            self.player.update(a, x_axis_only)
         if not self.is_clear and self.is_player_active:
             self.count += 1
             self.enemy.update()

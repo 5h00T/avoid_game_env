@@ -1,7 +1,10 @@
-from . import bullet_pool
-from .config import WINDOW_WIDTH, WINDOW_HEIGHT
+from gym_avoid_game.envs.resource.config import WINDOW_WIDTH, WINDOW_HEIGHT
 import math
-import pygame
+import contextlib
+with contextlib.redirect_stdout(None):
+    import pygame
+from gym_avoid_game.envs.resource import bullet_pool
+
 
 class Player():
     x = -10
@@ -26,7 +29,7 @@ class Player():
     def getPosition(cls):
         return cls.x, cls.y
 
-    def update(self, a):
+    def update(self, a, x_axis_only=False):
         self.count += 1
 
         for b in self.bullets:
@@ -34,15 +37,14 @@ class Player():
             if not b.is_active:
                 self.bullets.remove(b)
 
-        self.move(a)
+        self.move(a, x_axis_only)
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
-        # pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(self.x, self.y, 1, 1))
         for b in self.bullets:
             b.draw()
 
-    def move(self, a):
+    def move(self, a, x_axis_only=False):
         is_slanting = False
         slanting_speed = 0.71
         is_slow = False
@@ -51,39 +53,53 @@ class Player():
         down = False
         right = False
         left = False
-        """
-        0:○
-        1:↑
-        2:↗
-        3:→
-        4:↘
-        5:↓
-        6:↙
-        7:←
-        8:↖
-        """
-        if a is 0:
-            pass
-        elif a is 1:
-            up = True
-        elif a is 2:
-            up = True
-            right = True
-        elif a is 3:
-            right = True
-        elif a is 4:
-            down = True
-            right = True
-        elif a is 5:
-            down = True
-        elif a is 6:
-            down = True
-            left = True
-        elif a is 7:
-            left = True
-        elif a is 8:
-            up = True
-            left = True
+
+        if x_axis_only:
+            """
+            0:○
+            1:←
+            2:→
+            """
+            if a == 0:
+                pass
+            elif a == 1:
+                left = True
+            elif a == 2:
+                right = True
+        else:
+            """
+            0:○
+            1:↑
+            2:↗
+            3:→
+            4:↘
+            5:↓
+            6:↙
+            7:←
+            8:↖
+            """
+            if a == 0:
+                pass
+            elif a == 1:
+                up = True
+            elif a == 2:
+                up = True
+                right = True
+            elif a == 3:
+                right = True
+            elif a == 4:
+                down = True
+                right = True
+            elif a == 5:
+                down = True
+            elif a == 6:
+                down = True
+                left = True
+            elif a == 7:
+                left = True
+            elif a == 8:
+                up = True
+                left = True
 
         # 上または下と左または右が押されたとき移動量を0.71倍する
         if (right or left) and \

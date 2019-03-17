@@ -1,6 +1,8 @@
 import math
-import pygame
-from .config import WINDOW_HEIGHT, WINDOW_WIDTH
+import contextlib
+with contextlib.redirect_stdout(None):
+    import pygame
+from gym_avoid_game.envs.resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
 
 COLLISION_RADIUS_RATE = 0.3  # 見た目の当たり判定からどのぐらい
 

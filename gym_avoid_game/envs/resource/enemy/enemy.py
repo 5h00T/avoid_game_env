@@ -1,8 +1,10 @@
-from .. import bullet_pool
-from .. import player
+from gym_avoid_game.envs.resource import bullet_pool
+from gym_avoid_game.envs.resource import player
 import math
 import random
-import pygame
+import contextlib
+with contextlib.redirect_stdout(None):
+    import pygame
 
 
 class Enemy():
