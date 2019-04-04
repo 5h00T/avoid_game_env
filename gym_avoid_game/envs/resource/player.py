@@ -32,7 +32,7 @@ class Player():
     def update(self, a, x_axis_only=False):
         self.count += 1
 
-        for b in self.bullets:
+        for b in self.bullets[:]:
             b.update()
             if not b.is_active:
                 self.bullets.remove(b)
@@ -45,9 +45,9 @@ class Player():
             b.draw()
 
     def move(self, a, x_axis_only=False):
-        is_slanting = False
+        is_slanting = False  # 斜め移動
         slanting_speed = 0.71
-        is_slow = False
+        is_slow = False  # 低速移動
 
         up = False
         down = False

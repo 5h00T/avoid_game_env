@@ -27,7 +27,6 @@ class Bullet():
             # 移動
             self.x += self.movement_x * self.speed
             self.y += self.movement_y * self.speed
-            # print(math.sqrt(self.movement_x**2 + self.movement_y**2))
 
             # 移動用の関数が設定されていた場合実行
             for move_function in self.move_functions:
