@@ -1,2 +1,2 @@
-from gym_avoid_game.envs.avoid_game_env import ShootingEnv
-from gym_avoid_game.envs.avoid_game_env import SimpleShootingEnv
+from gym_avoid_game.envs.avoid_game_env import v0AvoidGameEnv
+from gym_avoid_game.envs.avoid_game_env import v1AvoidGameEnv
