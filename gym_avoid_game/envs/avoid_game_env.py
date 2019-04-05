@@ -10,7 +10,8 @@ import contextlib
 with contextlib.redirect_stdout(None):
     import pygame
 
-class ShootingEnv(gym.Env):
+
+class v0AvoidGameEnv(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(9)
@@ -60,7 +61,8 @@ class ShootingEnv(gym.Env):
     def seed(self, seed=None):
         pass
 
-class SimpleShootingEnv(gym.Env):
+
+class v1AvoidGameEnv(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(3)
