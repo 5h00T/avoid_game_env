@@ -671,7 +671,7 @@ class ShotPosition():
                 if count % interval_count == 0:
                     if angle_function is not None:
                         _angle = _angle + angle_function(count)
-                    b = self.bullet_pool.get_bullet(3, self.x, self.y, math.cos(math.radians(_angle)),
+                    b = self.bullet_pool.get_bullet(5, self.x, self.y, math.cos(math.radians(_angle)),
                                                     math.sin(math.radians(_angle)), speed, 0)
                     if b:
                         self.bullets.append(b)
