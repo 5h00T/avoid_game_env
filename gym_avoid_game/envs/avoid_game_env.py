@@ -11,7 +11,7 @@ with contextlib.redirect_stdout(None):
     import pygame
 
 
-class v0AvoidGameEnv(gym.Env):
+class v0AvoidGameTask1Env(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(9)
@@ -62,7 +62,7 @@ class v0AvoidGameEnv(gym.Env):
         pass
 
 
-class v1AvoidGameEnv(gym.Env):
+class v1AvoidGameTask1Env(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(3)
