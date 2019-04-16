@@ -3,6 +3,7 @@ from gym_avoid_game.envs.resource import player
 import math
 import random
 import contextlib
+
 with contextlib.redirect_stdout(None):
     import pygame
 
@@ -297,7 +298,8 @@ class ShotPosition():
             count += 1
             yield
 
-    def pattern6(self, angle1, angle2, speed1, speed2, move_time, stop_time, interval_count, start_count=0, end_count=math.inf):
+    def pattern6(self, angle1, angle2, speed1, speed2, move_time, stop_time, interval_count, start_count=0,
+                 end_count=math.inf):
         """
         angle度の方向に一発発射
         発射後move_timeカウント後stop_timeカウント停止しangle2角度変えながらspeed2で移動する
@@ -341,7 +343,8 @@ class ShotPosition():
             count += 1
             yield
 
-    def pattern8(self, way, angle1, angle2, speed1, speed2, move_time, stop_time, interval_count, start_count=0, end_count=math.inf):
+    def pattern8(self, way, angle1, angle2, speed1, speed2, move_time, stop_time, interval_count, start_count=0,
+                 end_count=math.inf):
         """
         全方位num弾を最初の弾がangle度に発射されるように発射する
         発射後move_timeカウント後stop_timeカウント停止しangle2角度変えてspeed2で移動する
@@ -364,7 +367,8 @@ class ShotPosition():
                         if b:
                             self.bullets.append(b)
                             b.set_move_function(
-                                b.pattern1(move_time, stop_time, angle2 + math.degrees(math.atan2(b.movement_y, b.movement_x)),
+                                b.pattern1(move_time, stop_time,
+                                           angle2 + math.degrees(math.atan2(b.movement_y, b.movement_x)),
                                            speed2))
 
                         _angle += 360 / way
@@ -511,7 +515,8 @@ class ShotPosition():
             count += 1
             yield
 
-    def pattern14(self, way, angle1, angle2, speed1, speed2, move_time, stop_time, a, min_speed, max_speed, interval_count,
+    def pattern14(self, way, angle1, angle2, speed1, speed2, move_time, stop_time, a, min_speed, max_speed,
+                  interval_count,
                   start_count=0, end_count=math.inf, angle_function1=None):
         """
         全方位num弾を最初の弾がangle度に発射されるように発射する
@@ -544,7 +549,8 @@ class ShotPosition():
                         if b:
                             self.bullets.append(b)
                             b.set_move_function(
-                                b.pattern1(move_time, stop_time, angle2 + math.degrees(math.atan2(b.movement_y, b.movement_x)),
+                                b.pattern1(move_time, stop_time,
+                                           angle2 + math.degrees(math.atan2(b.movement_y, b.movement_x)),
                                            speed2))
                             b.set_move_function(b.pattern2(a, min_speed, max_speed, stop_time, 999))
 
