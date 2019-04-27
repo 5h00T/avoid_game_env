@@ -47,7 +47,7 @@ class v0AvoidGameTask1Env(gym.Env):
         except:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
             self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption("shooting_env")
+        pygame.display.set_caption("avoid_game_env")
 
         self.screen.fill((255, 255, 255))
         self.task_manager.draw(self.screen)
@@ -98,7 +98,7 @@ class v1AvoidGameTask1Env(gym.Env):
         except:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
             self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption("shooting_env")
+        pygame.display.set_caption("avoid_game_env")
 
         self.screen.fill((255, 255, 255))
         self.task_manager.draw(self.screen)
@@ -149,7 +149,7 @@ class v0AvoidGameTask2Env(gym.Env):
         except:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
             self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption("shooting_env")
+        pygame.display.set_caption("avoid_game_env")
 
         self.screen.fill((255, 255, 255))
         self.task_manager.draw(self.screen)
@@ -200,7 +200,7 @@ class v1AvoidGameTask2Env(gym.Env):
         except:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
             self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption("shooting_env")
+        pygame.display.set_caption("avoid_game_env")
 
         self.screen.fill((255, 255, 255))
         self.task_manager.draw(self.screen)
