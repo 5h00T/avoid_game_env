@@ -66,7 +66,7 @@ class v1AvoidGameTask1Env(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(3)
-        self.observation_space = gym.spaces.Box(low=0, high=255, shape=(60, 60, 3), dtype=np.uint8)
+        self.observation_space = gym.spaces.Box(low=0, high=255, shape=(200, 200, 3), dtype=np.uint8)
         self.task_manager = None
         self.done = None
 
@@ -117,7 +117,7 @@ class v0AvoidGameTask2Env(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(9)
-        self.observation_space = gym.spaces.Box(low=0, high=255, shape=(60, 60, 3), dtype=np.uint8)
+        self.observation_space = gym.spaces.Box(low=0, high=255, shape=(200, 200, 3), dtype=np.uint8)
         self.task_manager = None
         self.done = None
 
@@ -168,7 +168,7 @@ class v1AvoidGameTask2Env(gym.Env):
     def __init__(self):
         self.screen = None
         self.action_space = gym.spaces.Discrete(3)
-        self.observation_space = gym.spaces.Box(low=0, high=255, shape=(60, 60, 3), dtype=np.uint8)
+        self.observation_space = gym.spaces.Box(low=0, high=255, shape=(200, 200, 3), dtype=np.uint8)
         self.task_manager = None
         self.done = None
 
