@@ -5,9 +5,12 @@ Learning Environment for OpenAI Gym
 Move the player (yellow object) to avoid the bullet from the enemy (blue object). The goal is to keep the bullets avoid.
 v0 moves in the vicinity of 8. v1 only moves horizontally.
 
+![v1t1](https://user-images.githubusercontent.com/25942568/56844757-7ec83300-68f0-11e9-88f8-583995e293c3.PNG)
+![v0t2](https://user-images.githubusercontent.com/25942568/56844756-7d970600-68f0-11e9-8a54-8c96d66f0900.PNG)  
+The left of the above figure is task1(t1).The right of the above figure is task2(t2).
 ## Observation: 
-numpy array  
-    shape(200, 200, 3) dtype=np.uint8
+Numpy array of screen RGB pixel values
+    shape(200, 200, 3) dtype=np.uint8  
     Min 0  
     Max 255
 
