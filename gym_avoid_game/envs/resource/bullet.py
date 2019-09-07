@@ -1,12 +1,14 @@
 import math
 import contextlib
+from gym_avoid_game.envs.resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
+
 with contextlib.redirect_stdout(None):
     import pygame
-from gym_avoid_game.envs.resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
 
 COLLISION_RADIUS_RATE = 0.3  # 見た目の当たり判定からどのぐらい
 
-class Bullet():
+
+class Bullet:
 
     def __init__(self, radius, x, y, movement_x, movement_y, speed, color):
         self.x = x

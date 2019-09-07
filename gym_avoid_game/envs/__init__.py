@@ -2,3 +2,5 @@ from gym_avoid_game.envs.avoid_game_env import v0AvoidGameTask1Env
 from gym_avoid_game.envs.avoid_game_env import v1AvoidGameTask1Env
 from gym_avoid_game.envs.avoid_game_env import v0AvoidGameTask2Env
 from gym_avoid_game.envs.avoid_game_env import v1AvoidGameTask2Env
+from gym_avoid_game.envs.avoid_game_env import v0AvoidGameTask3Env
+from gym_avoid_game.envs.avoid_game_env import v1AvoidGameTask3Env
