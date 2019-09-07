@@ -661,13 +661,13 @@ class ShotPosition():
         """
         angle度の方向に一発発射する
         発射された弾はbullet_change_start_count後に角度をbullet_angle_function関数に従って変更する
+        :param angle: 発射時の角度
         :param angle_function: 発射ごとに角度を変更したい場合増加させる角度を返す関数を指定する
         :param bullet_change_end_count:
         :param bullet_angle_function: 発射後の弾の角度を決定する関数
         :param speed: 弾の速さ
         :param bullet_change_interval: 弾の角度を変える頻度
         :param bullet_change_start_count: 弾の角度変更を終了するカウント
-        :param angle: 発射時の角度
         :return:
         """
         count = 0
