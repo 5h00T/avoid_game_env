@@ -49,7 +49,7 @@ class Bullet:
         自身の描写
         """
         if self.is_active:
-            pygame.draw.circle(screen, (0, 0, 0), (int(self.x), int(self.y)), self.radius)
+            pygame.draw.circle(screen, self.color, (int(self.x), int(self.y)), self.radius)
 
 
 class EnemyBullet(Bullet):
