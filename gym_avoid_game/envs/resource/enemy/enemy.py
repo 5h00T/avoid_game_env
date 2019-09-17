@@ -1,6 +1,6 @@
 from gym_avoid_game.envs.resource import bullet_pool
 from gym_avoid_game.envs.resource import player
-from gym_shooting_game.envs.resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
+from gym_avoid_game.envs.resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
 import math
 import random
 import contextlib
