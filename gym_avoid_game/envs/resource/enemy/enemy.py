@@ -1,5 +1,6 @@
 from gym_avoid_game.envs.resource import bullet_pool
 from gym_avoid_game.envs.resource import player
+from gym_shooting_game.envs.resource.config import WINDOW_HEIGHT, WINDOW_WIDTH
 import math
 import random
 import contextlib
@@ -55,7 +56,7 @@ class Enemy():
         pygame.draw.rect(screen, self.color, pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
 
         for bit in self.bits:
-            bit.draw()
+            bit.draw(screen)
 
         for shot_position in self.shot_positions:
             shot_position.draw(screen)
@@ -517,7 +518,7 @@ class ShotPosition():
 
     def pattern14(self, way, angle1, angle2, speed1, speed2, move_time, stop_time, a, min_speed, max_speed,
                   interval_count,
-                  start_count=0, end_count=math.inf, angle_function1=None):
+                  start_count=0, end_count=math.inf, angle_function1=None, size=4, color=(0, 0, 0)):
         """
         全方位num弾を最初の弾がangle度に発射されるように発射する
         発射後move_timeカウント後stop_timeカウント停止しangle2角度変えながらspeed2で移動
@@ -544,8 +545,8 @@ class ShotPosition():
                         _angle = angle1
 
                     for i in range(way):
-                        b = self.bullet_pool.get_bullet(3, self.x, self.y, math.cos(math.radians(_angle)),
-                                                        math.sin(math.radians(_angle)), speed1, 0)
+                        b = self.bullet_pool.get_bullet(size, self.x, self.y, math.cos(math.radians(_angle)),
+                                                        math.sin(math.radians(_angle)), speed1, color)
                         if b:
                             self.bullets.append(b)
                             b.set_move_function(
@@ -734,13 +735,13 @@ class Bit(Enemy):
                     except StopIteration:
                         self.shot_functions.remove(shot_function)
 
-        if self.x < -10 or self.x > pyxel.width + 10 or self.y < 0 - 10 or self.y > pyxel.height + 10:
+        if self.x < -10 or self.x > WINDOW_WIDTH + 10 or self.y < 0 - 10 or self.y > WINDOW_HEIGHT + 10:
             self.is_active = False
 
-    def draw(self):
+    def draw(self, screen):
         if self.is_active:
-            pyxel.rect(self.view_start_x, self.view_start_y, self.view_start_x + self.width,
-                       self.view_start_y + self.height, self.color)
+            pygame.draw.rect(screen, self.color,
+                             pygame.Rect(self.view_start_x, self.view_start_y, self.width, self.height))
 
     def set_move_function(self, move_function):
         self.move_functions.append(move_function)

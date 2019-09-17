@@ -31,7 +31,7 @@ class Task():
         if not self.is_clear:
             self.enemy.draw(screen)
             for bit in self.enemy.bits:
-                bit.shot_position.draw()
+                bit.shot_position.draw(screen)
 
     def enemy_playerbullet_detection(self):
         x1 = self.enemy.view_start_x
